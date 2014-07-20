@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby18
+FROM phusion/passenger-ruby21
 MAINTAINER xforty technologies "xforty.com"
 
 CMD ["/sbin/my_init"]
