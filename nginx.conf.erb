@@ -1,0 +1,14 @@
+server {
+    listen 80;
+
+    server_name <%= ENV['SERVER_NAME'] || ENV['APP_NAME'] %>;
+    root /home/app/www/public;
+
+    passenger_enabled on;
+    passenger_user app;
+    passenger_app_env <%= ENV['RAILS_ENV'] %>;
+
+    # If this is a Ruby app, specify a Ruby version:
+    passenger_ruby /usr/bin/ruby2.1;
+}
+

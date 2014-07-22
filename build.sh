@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-exec docker build -t xforty/rails-base "$(dirname "$0")"
+exec docker build --no-cache -t xforty/rails-base "$(dirname "$0")"

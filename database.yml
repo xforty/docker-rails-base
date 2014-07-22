@@ -1,0 +1,23 @@
+<%= ENV['RAILS_ENV'] %>:
+  <% if ENV['DB_PORT_3306_TCP_ADDR'] %>
+  adapter: mysql2
+  encoding: utf8
+  database: <%= ENV['APP_NAME']+'_'+ENV['RAILS_ENV'] %>
+  host: <%= ENV['DB_PORT_3306_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_3306_TCP_PORT'] %>
+  username: <%= ENV['DB_ENV_USER'] %>
+  password: <%= ENV['DB_ENV_PASS'] %>
+  <% elsif ENV['DB_PORT_5432_TCP_ADDR'] %>
+  adapter: postgresql
+  encoding: utf8
+  database: <%= ENV['APP_NAME']+'_'+ENV['RAILS_ENV'] %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>
+  username: <%= ENV['DB_ENV_USER'] %>
+  password: <%= ENV['DB_ENV_PASS'] %>
+  <% else %>
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/<%= ENV['RAILS_ENV'] %>.sqlite3
+  <% end %>
